@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+@layer utilities {
+  @keyframes shake {
+    10%,
+    90% {
+      transform: translateX(-2px);
+    }
+    20%,
+    80% {
+      transform: translateX(4px);
+    }
+    30%,
+    50%,
+    70% {
+      transform: translateX(-8px);
+    }
+    40%,
+    60% {
+      transform: translateX(8px);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+
+  .app-bg {
+    @apply transition-colors;
+    background: radial-gradient(
+        600px 300px at 20% -10%,
+        rgba(0, 0, 0, 0.05),
+        transparent 60%
+      ),
+      radial-gradient(
+        800px 400px at 80% 110%,
+        rgba(0, 0, 0, 0.04),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #f6f7f9 0%, #eef0f3 100%);
+  }
+  .dark .app-bg {
+    background: radial-gradient(
+        600px 300px at 20% -10%,
+        rgba(255, 255, 255, 0.06),
+        transparent 60%
+      ),
+      radial-gradient(
+        800px 400px at 80% 110%,
+        rgba(255, 255, 255, 0.04),
+        transparent 60%
+      ),
+      linear-gradient(180deg, #0d0f13 0%, #0f1217 100%);
+  }
+
+  .surface {
+    @apply rounded-2xl border backdrop-blur;
+    border-color: rgb(0 0 0 / 0.08);
+    background: rgb(255 255 255 / 0.82);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  }
+  .dark .surface {
+    border-color: rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.05);
+    box-shadow: none;
+  }
+
+  .field {
+    @apply w-full rounded-xl px-3 py-3 text-[15px] outline-none border transition focus:ring-4;
+    border-color: rgb(0 0 0 / 0.1);
+    background: rgb(255 255 255 / 0.9);
+  }
+  .field::placeholder {
+    color: rgb(0 0 0 / 0.45);
+  }
+  .field:focus {
+    box-shadow: 0 0 0 8px rgb(0 0 0 / 0.05);
+  }
+
+  .dark .field {
+    border-color: rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.04);
+  }
+  .dark .field::placeholder {
+    color: rgb(255 255 255 / 0.45);
+  }
+  .dark .field:focus {
+    box-shadow: 0 0 0 8px rgb(255 255 255 / 0.08);
+  }
+
+  .btn {
+    @apply w-full rounded-xl py-3 text-[15px] font-medium transition;
+    color: #fff;
+    background: #111214;
+  }
+  .btn:hover {
+    filter: brightness(1.05);
+  }
+  .btn:active {
+    filter: brightness(0.95);
+  }
+  .btn:disabled {
+    opacity: 0.6;
+  }
+
+  .dark .btn {
+    color: #0b0c0f;
+    background: #ffffff;
+  }
+}
